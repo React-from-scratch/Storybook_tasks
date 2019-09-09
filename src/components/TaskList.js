@@ -1,7 +1,9 @@
 import React from 'react'
 import Task from './Task'
+import { connect } from 'react-redux'
+import { archiveTask, pinTask, snoozeTask } from '../lib/redux'
 
-const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
+export const PureTaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
   const events = {
     onPinTask,
     onArchiveTask
@@ -61,4 +63,12 @@ const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
 
 // TaskList.defaultProps = { loading: false }
 
-export default TaskList
+export default connect(
+  ({ tasks }) => ({
+    tasks: tasks.filter(task => task.state === 'TASK_INBOX' || task.state === 'TASK_PINNED')
+  }),
+  dispatch => ({
+    onArchiveTask: id => dispatch(archiveTask(id)),
+    onPinTask: id => dispatch(pinTask(id))
+  })
+)(PureTaskList)

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { createTask, actions } from './Task.stories';
 
-import TaskList from './TaskList';
+import { PureTaskList } from './TaskList';
 
 export const defaultTasks = [
   createTask({ state: 'TASK_INBOX' }),
@@ -23,7 +23,7 @@ export const withPinnedTasks = [
 
 storiesOf('TaskList', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
-  .add('default', () => <TaskList tasks={defaultTasks} {...actions} />)
-  .add('withPinnedTasks', () => <TaskList tasks={withPinnedTasks} {...actions} />)
-  .add('Loading', () => <TaskList loading tasks={[]} {...actions} />)
-  .add('empty', () => <TaskList tasks={[]} {...actions} />)
+  .add('default', () => <PureTaskList tasks={defaultTasks} {...actions} />)
+  .add('withPinnedTasks', () => <PureTaskList tasks={withPinnedTasks} {...actions} />)
+  .add('Loading', () => <PureTaskList loading tasks={[]} {...actions} />)
+  .add('empty', () => <PureTaskList tasks={[]} {...actions} />)
