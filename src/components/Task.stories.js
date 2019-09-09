@@ -20,6 +20,7 @@ export const actions = {
 };
 
 storiesOf('Task', module)
+.addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .add('default', () => <Task task={createTask({ state: 'TASK_INBOX' })} {...actions} />)
   .add('pinned', () => <Task task={createTask({ state: 'TASK_PINNED' })} {...actions} />)
   .add('archived', () => <Task task={createTask({ state: 'TASK_ARCHIVED' })} {...actions} />);
