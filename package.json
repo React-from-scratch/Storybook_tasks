@@ -6,7 +6,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^5.0.7",
-    "react-scripts": "2.1.5",
+    "react-scripts": "5.0.1",
     "redux": "^4.0.4"
   },
   "devDependencies": {
@@ -14,7 +14,7 @@
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-links": "^5.1.11",
     "@storybook/addons": "^5.1.11",
-    "@storybook/react": "^5.1.11"
+    "@storybook/react": "^6.5.13"
   },
   "scripts": {
     "start": "react-scripts start",
